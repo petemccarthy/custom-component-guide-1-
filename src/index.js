@@ -1,10 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ExampleComponent from "./ExampleComponent";
+import { render } from 'react-dom';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import ExampleComponent from './ExampleComponent';
+import { RetoolConnectedComponent } from 'Retool';
 
-const RetoolConnectedComponent = Retool.connectReactComponent(ExampleComponent);
-document.body.setAttribute('style', 'margin: 0;') 
-ReactDOM.render(
-  <RetoolConnectedComponent/>, 
-  document.body.appendChild(document.createElement('div')) 
+const App = () => (
+  <ThemeProvider>
+    <CSSReset />
+    <RetoolConnectedComponent>
+      <ExampleComponent />
+    </RetoolConnectedComponent>
+  </ThemeProvider>
 );
+
+render(<App />, document.body.appendChild(document.createElement('div')));
