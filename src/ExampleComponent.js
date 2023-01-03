@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Button, Divider, TextField, Typography } from '@mui/material'
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 
 /* Default component model
   {
@@ -19,36 +19,10 @@ const ExampleComponent = ({ triggerQuery, model, modelUpdate }) => {
       greeting: e.target.value
     })
   }
-  return(
+  return (
     <>
-          <Box sx={{ m: 1 }}>
-            <Typography variant='h2'>{model.greeting}{model.username}</Typography>
-            <Typography variant='h4'>{model.message}</Typography>
-            <Button variant="outlined"
-              onClick={()=>triggerQuery(model.runQuery)}
-            >Get a user name</Button>
-          </Box>
-
-          <Box sx={{ m: 1 }}>
-            <Typography variant='body1'>Want to trigger a query?</Typography>
-            <Button variant="outlined"
-              onClick={()=>triggerQuery(model.yesQuery)}
-            >
-              👍
-            </Button>
-            <Button variant="outlined"
-              onClick={()=>triggerQuery(model.noQuery)}
-            >
-              👎
-            </Button>
-          </Box>
-
-          <Divider />
-
-          <Box sx={{ m: 1 }}>
-            <TextField id="outlined-uncontrolled" label="Change Greeting" onChange={handleChange} />
-          </Box>
-      </>
+      <CircularProgress value={80} />
+    </>
   );
 }
 export default ExampleComponent;
